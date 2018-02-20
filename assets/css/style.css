@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.main-section {
+    padding:2rem 1rem;
+}
+
+p {
+    margin:0px;
+    
+}
+
+
+h4 {
+    margin-top:25px;
+}
+h1 {
+    margin-top:1px;
+}
+
+.display {
+  height: 130px;
+}
+
+.crystal-image {
+  background-size: cover;
+  background-position: center center;
+  height:250px;
+  /* width: 90%; */
+  margin: 0px;
+}
+
+.header-image {
+    background-image: url(../images/header-image.jpeg);
+    overflow:auto;
+    
+    
+
+}
+.quartz-crystal {
+  background-image: url(../images/quartz.jpg);
+  margin-right:20px;
+  margin-left:13%;
+ 
+ 
+
+}
+.brookite-crystal {
+  background-image: url(../images/brookite.jpg);
+  margin-right:20px
+ 
+}
+.benitoite-crystal {
+  background-image: url(../images/benitoite.jpg);
+  margin-right:20px
+ 
+  
+}
+.garnet-crystal {
+  background-image: url(../images/garnet.jpg);
+  margin-right:20px
+ 
+}
+
+.variable-display {
+    background: #e9ecef;
+    border: 1px solid #ffffff;
+    height: 100px;
+    margin-bottom: 35px;
+    text-align:center;
+    padding-top:10px;
+    color:#1f1f1f;
+    font-weight:bold;
+
+}
+
+
+.number-display {
+    font-size: 35px;
+}
+.score-display {
+    font-size: 35px;
+}
+.win-display {
+    font-size: 35px;
+}
+.loss-display {
+    font-size: 35px;
+}
