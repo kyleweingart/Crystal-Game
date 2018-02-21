@@ -10,14 +10,14 @@ $(document).ready(function() {
   var losses = 0;
   // create variable to track totalScore
   var totalScore;
-  // create variables to assign each crystal to its div id
-  var quartzCrystal = $("#quartz");
-  var garnetCrystal = $("#garnet");
-  var brookiteCrystal = $("#brookite");
-  var benitoiteCrystal = $("#benitoite");
 
-  //  create variable array for each crystal value
-  var crystalValue = [];
+  //  create variable array for each crystal div id
+  var crystalValue = [
+    $("#quartz"),
+    $("#garnet"),
+    $("#brookite"),
+    $("#benitoite")
+  ];
 
   // FUNCTIONS
   // ======================================================================================================
@@ -35,15 +35,12 @@ $(document).ready(function() {
       .empty()
       .append(randNumberChoice);
 
-    crystalValue[0] = [Math.floor(Math.random() * (12 - 1 + 1) + 1)];
-    crystalValue[1] = [Math.floor(Math.random() * (12 - 1 + 1) + 1)];
-    crystalValue[2] = [Math.floor(Math.random() * (12 - 1 + 1) + 1)];
-    crystalValue[3] = [Math.floor(Math.random() * (12 - 1 + 1) + 1)];
-
-    quartzCrystal.attr("crystalvalue", crystalValue[0]);
-    garnetCrystal.attr("crystalvalue", crystalValue[1]);
-    brookiteCrystal.attr("crystalvalue", crystalValue[2]);
-    benitoiteCrystal.attr("crystalvalue", crystalValue[3]);
+    for (var i = 0; i < crystalValue.length; i++) {
+      varRandomValue = [Math.floor(Math.random() * (12 - 1 + 1) + 1)];
+      crystalValue[i].attr("crystalvalue", varRandomValue);
+      console.log("random " + varRandomValue);
+      console.log(crystalValue.length);
+    }
   }
 
   newGame();
@@ -51,33 +48,31 @@ $(document).ready(function() {
   // MAIN PROCESS
   // ============================================================================================================
 
-  // display wins and losses 
   $(".win-display").append(wins);
   $(".loss-display").append(losses);
 
-  // on crystal click add crytal value to score
-  // if score===number add 1 to win counter and start new game
-  // if score > number add 1 to loss counter and start new game 
-
   $(".crystal-image").on("click", function() {
-    
+    console.log("i was clicked");
     var crystalStoredValue = $(this).attr("crystalvalue");
-
+    console.log(" hi " + crystalStoredValue);
     crystalStoredValue = parseInt(crystalStoredValue);
-
+    console.log("yo " + crystalStoredValue);
     totalScore = totalScore += crystalStoredValue;
     $(".score-display")
       .empty()
       .append(totalScore);
+    console.log("total score " + totalScore);
 
     if (totalScore == randNumberChoice) {
       wins++;
+      console.log("youwin");
       $(".win-display")
         .empty()
         .append(wins);
       newGame();
     } else if (totalScore > randNumberChoice) {
       losses++;
+      console.log("youlose");
       $(".loss-display")
         .empty()
         .append(losses);
